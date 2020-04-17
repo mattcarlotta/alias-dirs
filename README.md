@@ -19,13 +19,13 @@ import ExampleComponent from "~components/ExampleComponent"
 ## Installation
 
 ```
-npm i -D alias-dir
+npm i -D alias-dirs
 ```
 
 or
 
 ```
-yarn -D alias-dir
+yarn -D alias-dirs
 ```
 
 ## Usage

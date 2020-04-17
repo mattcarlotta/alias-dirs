@@ -16,6 +16,30 @@ Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-m
 import ExampleComponent from "~components/ExampleComponent"
 ```
 
+[Installation](#installation)
+
+[Usage](#usage)
+
+[Props](#props)
+
+[Advanced Usage](#advanced-usage)
+
+[Traversing Root Directories or Subdirectories](#traversing-root-directories-or-subdirectories)
+
+[User-defined Alias Symbols](#user-defined-alias-symbols)
+
+[User-defined Ignored Folers](#user-defined-ignored-folers)
+
+[Debugging](#debugging)
+
+[Example](#example)
+
+[Report Bugs](#report-bugs)
+
+[Feature Requests](#feature-requests)
+
+[License](#license)
+
 ## Installation
 
 ```
@@ -60,6 +84,15 @@ import ExampleComponent from "~components/Example"
 import ExampleContainer from "~containers/Example"
 ```
 
+## Props
+
+The following props are accepted by `aliasDirs()`:
+
+| `prop`                    | Description                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `alias`(str)              | A `string` to alias folders to. (default: `~`)                                                                        |
+| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: `[".", "./src"]`)                |
+| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [User-defined Ignored Folers](#user-defined-ignored-folders)) |
 ---
 
 # Advanced Usage
@@ -73,7 +106,7 @@ If you wish to override the default paths, then you can supply an **array of roo
 
 For example:
 ```js
-// this traverses all subdirectories within "./server", ignoring the root and "./src" directories
+// this traverses all subdirectories within "./server", ignoring the root "." and "./src" directories
 aliasDirs({ paths: ["./server"] })
 ```
 
@@ -90,7 +123,7 @@ aliasDirs({ alias: "$" })
 
 *WARNING*: This module will not play well with public or private npm `@` name-spaced packages. Aliasing with an empty string `""` or with the private `@` symbol is discouraged and not recommended as it may conflict with a `node_module` package. A warning will be shown if an empty string or `@` is used. If you want to supress warnings, then add `supressWarnings: true` property. As such, use at your own risk.
 
-## User-defined Ignored Folers
+## User-defined Ignored Folders
 
 By default this package will ignore the following folders:
 ```
@@ -113,7 +146,7 @@ If you wish to override the defaults, then you must supply an **array of string 
 
 For example:
 ```js
-// this will ignore ANY folders named "secret"
+// this will override the default and ignore ANY folders named "secret"
 aliasDirs({ ignoredDirectories: ["secret"] })
 ```
 
@@ -165,3 +198,19 @@ Install the example dependencies:
 
 Run the example:
 `npm run example` or `yarn example`
+
+## Feature Requests
+
+Have a feature you want included or believe the package is missing something? You can either fork the repo, commit changes, and submit a new  <a href="https://github.com/mattcarlotta/alias-dirs/pulls">PR</a> (please include relevant `.tests.js` files and run `npm run test:cov` or `yarn test:cov` to make sure the code is covered) or you can submit a <a href="https://github.com/mattcarlotta/alias-dirs/issues">feature request</a>. 
+
+
+## Report bugs
+
+If you run into any issues, please fill out a <a href="https://github.com/mattcarlotta/alias-dirs/issues">bug report</a>. 
+
+**⚠️ NOTE**: Please provide a reproducible codesandbox example of the bug(s) you're experiencing. Issues that don't provide a reproducible example **may be ignored.**
+
+## License
+
+alias-dirs is [MIT licensed](LICENSE).
+

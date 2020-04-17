@@ -24,11 +24,11 @@ import ExampleComponent from "~components/ExampleComponent"
 
 [Advanced Usage](#advanced-usage)
 
-[User-defined Alias Symbols](#user-defined-alias-symbols)
+[Alias Symbols](#alias-symbols)
 
-[User-defined Ignored Folders](#user-defined-ignored-folders)
+[Ignored Folders](#ignored-folders)
 
-[User-defined Pathing](#user-defined-pathing)
+[Pathing](#pathing)
 
 [Debugging](#debugging)
 
@@ -90,27 +90,15 @@ The following props are accepted by `aliasDirs()`:
 
 | `prop`                    | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `alias`(str)              | A `string` to alias folders to (default: [User-defined Alias Symbols](#user-defined-alias-symbols))                                                                        |
-| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [User-defined Ignored Folders](#user-defined-ignored-folders)) |
-| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: [User-defined Pathing](#user-defined-pathing))               |
+| `alias`(str)              | A `string` to alias folders to (default: [Alias Symbols](#alias-symbols))                                                                        |
+| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [Ignored Folders](#ignored-folders)) |
+| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: [Pathing](#pathing))               |
 ---
 
 # Advanced Usage
 
 
-## User-defined Pathing
-
-By default, this package will only alias root-level folders within the project's root directory `.` and top-level folders within the `./src` directory. 
-
-If you wish to override the default paths, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
-
-For example:
-```js
-// this traverses all subdirectories within "./server", ignoring the root "." and "./src" directories
-aliasDirs({ paths: ["./server"] })
-```
-
-## User-defined Alias Symbols
+## Alias Symbols
 
 By default this package will alias all folders with a tilde `~`.
 
@@ -123,7 +111,7 @@ aliasDirs({ alias: "$" })
 
 *WARNING*: This module will not play well with public or private npm `@` name-spaced packages. Aliasing with an empty string `""` or with the private `@` symbol is discouraged and not recommended as it may conflict with a `node_module` package. A warning will be shown if an empty string or `@` is used. If you want to supress warnings, then add `supressWarnings: true` property. As such, use at your own risk.
 
-## User-defined Ignored Folders
+## Ignored Folders
 
 By default this package will ignore the following folders:
 ```
@@ -174,6 +162,18 @@ module.exports = api => {
     ]
   }
 }
+```
+
+## Pathing
+
+By default, this package will only alias root-level folders within the project's root directory `.` and top-level folders within the `./src` directory. 
+
+If you wish to override the default paths, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
+
+For example:
+```js
+// this traverses all subdirectories within "./server", ignoring the root "." and "./src" directories
+aliasDirs({ paths: ["./server"] })
 ```
 
 ## Debugging

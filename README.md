@@ -26,7 +26,7 @@ import ExampleComponent from "~components/ExampleComponent"
 
 [Alias Symbols](#alias-symbols)
 
-[Ignored Folders](#ignored-folders)
+[Ignore Directories](#ignore-directories)
 
 [Pathing](#pathing)
 
@@ -91,7 +91,7 @@ The following props are accepted by `aliasDirs()`:
 | `prop`                    | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `alias`(str)              | A `string` to alias folders to (default: [Alias Symbols](#alias-symbols))                                                                        |
-| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [Ignored Folders](#ignored-folders)) |
+| `ignoreDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [Ignore Directories](#ignore-directories)) |
 | `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: [Pathing](#pathing))               |
 ---
 
@@ -111,9 +111,9 @@ aliasDirs({ alias: "$" })
 
 *WARNING*: This module will not play well with public or private npm `@` name-spaced packages. Aliasing with an empty string `""` or with the private `@` symbol is discouraged and not recommended as it may conflict with a `node_module` package. A warning will be shown if an empty string or `@` is used. If you want to supress warnings, then add `supressWarnings: true` property. As such, use at your own risk.
 
-## Ignored Folders
+## Ignored Directories
 
-By default this package will ignore the following folders:
+By default this package will ignore the following directories:
 ```
 build
 config
@@ -130,20 +130,20 @@ In addition, these directories will also be automatically ignored by enforcement
 node_modules
 ```
 
-If you wish to override the defaults, then you must supply an **array of string folder names** to *ignoredDirectories*:
+If you wish to override the defaults, then you must supply an **array of string directory names** to *ignoreDirectories*:
 
 For example:
 ```js
 // this will override the default and ignore ANY folders named "secret"
-aliasDirs({ ignoredDirectories: ["secret"] })
+aliasDirs({ ignoreDirectories: ["secret"] })
 ```
 
-If you want to keep the default ignored directories and extend from them, then you can utilize the predefined `aliasDirs.ignoredDirectories` array.
+If you want to keep the default ignored directories and extend from them, then you can utilize the predefined `aliasDirs.ignoreDirectories` array.
 
 For example:
 ```js
 const aliasDirs = require("../index")
-const { ignoredDirectories } = aliasDirs
+const { ignoreDirectories } = aliasDirs
 
 module.exports = api => {
   api.cache.using(() => process.env.NODE_ENV)
@@ -155,7 +155,7 @@ module.exports = api => {
         "module-resolver",
         {
           alias: aliasDirs({
-            ignoredDirectories: [ ...ignoredDirectories, "components" ]
+            ignoreDirectories: [ ...ignoreDirectories, "components" ]
           })
         }
       ]

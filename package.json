@@ -7,10 +7,9 @@
 		"email": "carlotta.matt@gmail.com"
 	},
 	"scripts": {
-		"example": "next dev",
-		"test": "node ./test.js",
-		"testonly": "NODE_ENV=test mocha test/specs.js",
-		"testonly-watch": "NODE_ENV=test mocha -w test/specs.js"
+		"test": "NODE_ENV=test jest",
+		"test:cov": "NODE_ENV=test jest --coverage",
+		"test:watch": "NODE_ENV=test jest --passWithNoTests --watchAll"
 	},
 	"bugs": {
 		"url": "https://github.com/mattcarlotta/alias-dirs/issues"

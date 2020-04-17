@@ -7,6 +7,7 @@ var _require = require("fs"),
 var _require2 = require("path"),
 	resolve = _require2.resolve
 
+var inTesting = process.env.NODE_ENV === "test"
 var enforcedDirectories = ["node_modules"]
 var ignorePredefindDirectories = [
 	"build",
@@ -41,7 +42,7 @@ var _default = function _default() {
 					: [".", "./src"],
 			alias = typeof _args.alias === "string" ? _args.alias : "~",
 			ignoredDirectories = (
-				_args.ignoredDirectories || ignorePredefindDirectories
+				_args.ignoreDirectories || ignorePredefindDirectories
 			).concat(enforcedDirectories),
 			debug = _args.debug,
 			suppressWarnings = _args.suppressWarnings
@@ -50,8 +51,6 @@ var _default = function _default() {
 			logWarning(
 				"Using an empty string or the @ symbol as an alias may conflict with npm package name spaces. It's highly recommended that you use another alias symbol."
 			)
-		} else if (typeof alias !== "string") {
-			throw Error("The alias you've provided is not a valid string.")
 		}
 
 		if (debug) {
@@ -81,7 +80,6 @@ var _default = function _default() {
 			}, {})
 			return Object.assign({}, accumulatedAliasedPaths, aliasedPaths)
 		}, [])
-
 		if ((!aliases || Object.keys(aliases).length === 0) && !suppressWarnings)
 			logWarning(
 				"Unable to locate any directories to alias! Please make sure the provided directories do not conflict with these currently ignored directories: "
@@ -89,16 +87,15 @@ var _default = function _default() {
 					.concat(ignoredDirectories.toString())
 					.concat("]")
 			)
-
 		if (debug)
 			logMessage("Aliasing directories... ".concat(JSON.stringify(aliases)))
-
 		return aliases
 	} catch (error) {
 		logError(error)
-		process.exit(1)
+		/* istanbul ignore next */
+		if (!inTesting) process.exit(1)
 	}
 }
 
 module.exports = _default
-module.exports.ignoredDirectories = ignorePredefindDirectories
+module.exports.ignoreDirectories = ignorePredefindDirectories

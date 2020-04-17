@@ -1,4 +1,4 @@
-# alias-dir
+# alias-dirs
 
 <img src="https://img.shields.io/github/package-json/v/mattcarlotta/alias-dirs?style=for-the-badge"></img> [![Codecov](https://img.shields.io/codecov/c/github/mattcarlotta/alias-dirs?style=for-the-badge)](https://codecov.io/gh/mattcarlotta/alias-dirs) [![Open Issues](https://img.shields.io/github/issues-raw/mattcarlotta/alias-dirs?style=for-the-badge)](https://github.com/mattcarlotta/alias-dirs/issues) [![Dependencies](https://img.shields.io/david/mattcarlotta/alias-dirs.svg?style=for-the-badge)](https://david-dm.org/mattcarlotta/alias-dirs) [![License](https://img.shields.io/github/license/mattcarlotta/alias-dirs?style=for-the-badge)](https://github.com/mattcarlotta/alias-dirs/blob/master/LICENSE)
 

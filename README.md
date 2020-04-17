@@ -184,6 +184,15 @@ For example:
 ```js
 aliasDirs({ debug: true })
 ```
+<details>
+<summary>Default debug output</summary>
+<pre><code>
+Debug: Traversing paths... [.,./src]
+Debug: Using alias... (~)
+Debug: Ignoring directories... [build,config,coverage,cypress,dist,env,public,node_modules]
+Debug: Aliasing directories... {"~src":"./src","~components":"./src/components","~containers":"./src/containers","~pages":"./src/pages"}
+</code></pre>
+</details>
 
 
 ## Example

@@ -24,11 +24,11 @@ import ExampleComponent from "~components/ExampleComponent"
 
 [Advanced Usage](#advanced-usage)
 
-[Traversing Root Directories or Subdirectories](#traversing-root-directories-or-subdirectories)
-
 [User-defined Alias Symbols](#user-defined-alias-symbols)
 
-[User-defined Ignored Folers](#user-defined-ignored-folers)
+[User-defined Ignored Folders](#user-defined-ignored-folders)
+
+[User-defined Pathing](#user-defined-pathing)
 
 [Debugging](#debugging)
 
@@ -90,15 +90,15 @@ The following props are accepted by `aliasDirs()`:
 
 | `prop`                    | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `alias`(str)              | A `string` to alias folders to. (default: `~`)                                                                        |
-| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: `[".", "./src"]`)                |
-| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [User-defined Ignored Folers](#user-defined-ignored-folders)) |
+| `alias`(str)              | A `string` to alias folders to (default: [User-defined Alias Symbols](#user-defined-alias-symbols))                                                                        |
+| `ignoredDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [User-defined Ignored Folders](#user-defined-ignored-folders)) |
+| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: [User-defined Pathing](#user-defined-pathing))               |
 ---
 
 # Advanced Usage
 
 
-## Traversing Root Directories or Subdirectories
+## User-defined Pathing
 
 By default, this package will only alias root-level folders within the project's root directory `.` and top-level folders within the `./src` directory. 
 

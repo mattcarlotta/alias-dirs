@@ -41,8 +41,10 @@ var _default = function _default() {
 					? _args.paths
 					: [".", "./src"],
 			alias = typeof _args.alias === "string" ? _args.alias : "~",
-			ignoredDirectories = (
-				_args.ignoreDirectories || ignorePredefindDirectories
+			ignoredDirectories = (_args.ignoreDirectories &&
+			_args.ignoreDirectories[0] !== undefined
+				? _args.ignoreDirectories
+				: ignorePredefindDirectories
 			).concat(enforcedDirectories),
 			debug = _args.debug,
 			suppressWarnings = _args.suppressWarnings

@@ -109,7 +109,7 @@ In addition, these directories will also be automatically ignored by enforcement
 node_modules
 ```
 
-If you wish override the defaults, then you must supply an **array of string folder names** to *ignoredDirectories*:
+If you wish to override the defaults, then you must supply an **array of string folder names** to *ignoredDirectories*:
 
 For example:
 ```js

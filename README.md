@@ -10,7 +10,7 @@ No more relative path travesing in babel like so:
 import ExampleComponent from "../../../../../components/ExampleComponent"
 ```
 
-Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to top-level folders within `src` so you don't have to:
+Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to root-level directories and top-level folders and within the `src` directory so you don't have to:
 
 ```js
 import ExampleComponent from "~components/ExampleComponent"
@@ -67,14 +67,14 @@ import ExampleContainer from "~containers/Example"
 
 ## Traversing Root Directories or Subdirectories
 
-By default this package will only alias top-level folders within the `src` directory. 
+By default, this package will only alias root-level folders within the project's root directory `.` and top-level folders within the `./src` directory. 
 
-If you wish to override the default path and instead traverse the root or sub directories of your project, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
+If you wish to override the default paths, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
 
 For example:
 ```js
-// this traverses all root folders within "./" and all subdirectories withing "./src"
-aliasDirs({ paths: [".", "./src"] })
+// this traverses all subdirectories within "./server", ignoring the root and "./src" directories
+aliasDirs({ paths: ["./server"] })
 ```
 
 ## User-defined Alias Symbols

@@ -35,7 +35,7 @@ var _default = function _default() {
 		var _args =
 			arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
-		var paths = _args.paths || ["./src"],
+		var paths = _args.paths || [".", "./src"],
 			alias = typeof _args.alias === "string" ? _args.alias : "~",
 			ignoredDirectories = (
 				_args.ignoredDirectories || ignorePredefindDirectories

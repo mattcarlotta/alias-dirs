@@ -76,7 +76,7 @@ module.exports = api => {
 ```
 
 
-**And you're all set!** Now you can do stuff like (regardless of directory):
+**And you're all set!** Now you can import a `~root` folder from within any nested `.js` files:
 
 ```js
 import "~styles"

@@ -10,7 +10,7 @@ No more relative path travesing in babel like so:
 import ExampleComponent from "../../../../../components/ExampleComponent"
 ```
 
-Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to root-level `.` directories and top-level folders within the `src` directory... so you don't have to:
+Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to root-level `.` directories and top-level directories within the `src` directory... so you don't have to:
 
 ```js
 import ExampleComponent from "~components/ExampleComponent"
@@ -76,7 +76,7 @@ module.exports = api => {
 ```
 
 
-**And you're all set!** Now you can import a `~root` folder from within any nested `.js` files:
+**And you're all set!** Now you can import a `~root` directory from within any nested `.js` files:
 
 ```js
 import "~styles"
@@ -90,9 +90,9 @@ The following props are accepted by `aliasDirs()`:
 
 | `prop`                    | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `alias`(str)              | A `string` to alias folders to (default: [Alias Symbols](#alias-symbols))                                                                        |
-| `ignoreDirectories`(arr) | An `array` of `string` folder paths to ignore (default: [Ignore Directories](#ignore-directories)) |
-| `paths`(arr)              | An `array` of `string` folder paths relative to the root project directory (default: [Pathing](#pathing))               |
+| `alias`(str)              | A `string` to alias directories to (default: [Alias Symbols](#alias-symbols))                                                                        |
+| `ignoreDirectories`(arr) | An `array` of `string` directory paths to ignore (default: [Ignore Directories](#ignore-directories)) |
+| `paths`(arr)              | An `array` of `string` directory paths relative to the root project directory (default: [Pathing](#pathing))               |
 ---
 
 # Advanced Usage
@@ -100,7 +100,7 @@ The following props are accepted by `aliasDirs()`:
 
 ## Alias Symbols
 
-By default this package will alias all folders with a tilde `~`.
+By default this package will alias all directories with a tilde `~`.
 
 If you wish to override the predefined alias, then you can supply a **string** to the *alias* property.
 
@@ -126,7 +126,7 @@ public
 
 In addition, these directories will also be automatically ignored by enforcement:
 ```
-^[.]/ // any folders with "." in their name
+^[.]/ // any directories with "." in their name
 node_modules
 ```
 
@@ -134,7 +134,7 @@ If you wish to override the defaults, then you must supply an **array of string 
 
 For example:
 ```js
-// this will override the default and ignore ANY folders named "secret"
+// this will override the default and ignore ANY directories named "secret"
 aliasDirs({ ignoreDirectories: ["secret"] })
 ```
 
@@ -166,7 +166,7 @@ module.exports = api => {
 
 ## Pathing
 
-By default, this package will only alias root-level folders within the project's root directory `.` and top-level folders within the `./src` directory. 
+By default, this package will only alias root-level directories within the project's root directory `.` and top-level directories within the `./src` directory. 
 
 If you wish to override the default paths, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
 
@@ -178,7 +178,7 @@ aliasDirs({ paths: ["./server"] })
 
 ## Debugging
 
-If you want to make sure your folders are being properly ignored/aliased, then add a `debug: true` property. This will display a console log of: the traversed paths, the alias, the ignored directories, and the resulting aliased directories.
+If you want to make sure your directories are being properly ignored/aliased, then add a `debug: true` property. This will display a console log of: the traversed paths, the alias, the ignored directories, and the resulting aliased directories.
 
 For example:
 ```js

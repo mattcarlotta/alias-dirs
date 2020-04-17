@@ -10,7 +10,7 @@ No more relative path travesing in babel like so:
 import ExampleComponent from "../../../../../components/ExampleComponent"
 ```
 
-Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to root-level directories and top-level folders and within the `src` directory so you don't have to:
+Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-module-resolver#readme">babel-plugin-module-resolver</a>, this package automatically creates aliases to root-level `.` directories and top-level folders within the `src` directory... so you don't have to:
 
 ```js
 import ExampleComponent from "~components/ExampleComponent"

@@ -1,0 +1,41 @@
+{
+	"name": "alias-dirs",
+	"description": "Create aliases of directories for babel",
+	"version": "0.0.1",
+	"author": {
+		"name": "Matt Carlotta",
+		"email": "carlotta.matt@gmail.com"
+	},
+	"scripts": {
+		"example": "next dev",
+		"test": "node ./test.js",
+		"testonly": "NODE_ENV=test mocha test/specs.js",
+		"testonly-watch": "NODE_ENV=test mocha -w test/specs.js"
+	},
+	"bugs": {
+		"url": "https://github.com/mattcarlotta/alias-dirs/issues"
+	},
+	"homepage": "https://github.com/mattcarlotta/alias-dirs",
+	"keywords": [
+		"babel",
+		"extend",
+		"modules",
+		"path",
+		"resolve"
+	],
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"README.md",
+		"LICENSE"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:mattcarlotta/alias-dirs.git"
+	},
+	"devDependencies": {
+		"jest": "^25.3.0",
+		"prettier": "^2.0.4"
+	}
+}

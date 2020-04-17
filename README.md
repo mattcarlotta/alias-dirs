@@ -69,7 +69,7 @@ import ExampleContainer from "~containers/Example"
 
 By default this package will only alias top-level folders within the `src` directory. 
 
-If you wish override the default path and instead traverse the root or sub directories of your project, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
+If you wish to override the default path and instead traverse the root or sub directories of your project, then you can supply an **array of root-level relative string paths** to the *paths* property (do **NOT** include trailing slashes).
 
 For example:
 ```js
@@ -81,7 +81,7 @@ aliasDirs({ paths: [".", "./src"] })
 
 By default this package will alias all folders with a tilde `~`.
 
-If you wish override the predefined alias, then you can supply a **string** to the *alias* property.
+If you wish to override the predefined alias, then you can supply a **string** to the *alias* property.
 
 For example:
 ```js
@@ -125,21 +125,21 @@ const aliasDirs = require("../index")
 const { ignoredDirectories } = aliasDirs
 
 module.exports = api => {
-	api.cache.using(() => process.env.NODE_ENV)
+  api.cache.using(() => process.env.NODE_ENV)
 
-	return {
-		presets: ["next/babel"],
-		plugins: [
-			[
-				"module-resolver",
-				{
-					alias: aliasDirs({
-						ignoredDirectories: [ ...ignoredDirectories, "components" ]
-					})
-				}
-			]
-		]
-	}
+  return {
+    presets: [...],
+    plugins: [
+      [
+        "module-resolver",
+        {
+          alias: aliasDirs({
+            ignoredDirectories: [ ...ignoredDirectories, "components" ]
+          })
+        }
+      ]
+    ]
+  }
 }
 ```
 
@@ -161,11 +161,7 @@ To run it, clone the repo:
 `git clone git@github.com:mattcarlotta/alias-dirs.git`
 
 Install the example dependencies:
-`cd example && npm i` 
-or
-`cd example && yarn`
+`cd example && npm i` or `cd example && yarn`
 
 Run the example:
-`npm run example`
-or
-`yarn example`
+`npm run example` or `yarn example`

@@ -2,9 +2,7 @@
 
 <img src="https://img.shields.io/github/package-json/v/mattcarlotta/alias-dirs?style=for-the-badge"></img> [![Codecov](https://img.shields.io/codecov/c/github/mattcarlotta/alias-dirs?style=for-the-badge)](https://codecov.io/gh/mattcarlotta/alias-dirs) [![Open Issues](https://img.shields.io/github/issues-raw/mattcarlotta/alias-dirs?style=for-the-badge)](https://github.com/mattcarlotta/alias-dirs/issues) [![Dependencies](https://img.shields.io/david/mattcarlotta/alias-dirs.svg?style=for-the-badge)](https://david-dm.org/mattcarlotta/alias-dirs) [![License](https://img.shields.io/github/license/mattcarlotta/alias-dirs?style=for-the-badge)](https://github.com/mattcarlotta/alias-dirs/blob/master/LICENSE)
 
-Create some aliased directories for babel!
-
-No more relative path travesing in babel like so:
+Automically creates aliased directories for babel! No more relative path traversing in babel like so:
 
 ```js
 import ExampleComponent from "../../../../../components/ExampleComponent"
@@ -15,6 +13,8 @@ Instead, with the help of the <a href="https://github.com/tleunen/babel-plugin-m
 ```js
 import ExampleComponent from "~components/ExampleComponent"
 ```
+
+If you add a folder to one of these directories while developing, not a problem, simply restart the node service and the folder will be automatically aliased!
 
 [Installation](#installation)
 
@@ -93,7 +93,6 @@ The following props are accepted by `aliasDirs()`:
 | `alias`(str)              | A `string` to alias directories to (default: [Alias Symbols](#alias-symbols))                                                                        |
 | `ignoreDirectories`(arr) | An `array` of `string` directory paths to ignore (default: [Ignore Directories](#ignore-directories)) |
 | `paths`(arr)              | An `array` of `string` directory paths relative to the root project directory (default: [Pathing](#pathing))               |
----
 
 # Advanced Usage
 
@@ -143,7 +142,6 @@ If you want to keep the default ignored directories and extend from them, then y
 For example:
 ```js
 const aliasDirs = require("../index")
-const { ignoreDirectories } = aliasDirs
 
 module.exports = api => {
   api.cache.using(() => process.env.NODE_ENV)
@@ -155,7 +153,7 @@ module.exports = api => {
         "module-resolver",
         {
           alias: aliasDirs({
-            ignoreDirectories: [ ...ignoreDirectories, "components" ]
+            ignoreDirectories: [ ...aliasDirs.ignoreDirectories, "components" ]
           })
         }
       ]

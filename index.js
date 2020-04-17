@@ -35,16 +35,16 @@ var _default = function _default() {
 		var _args =
 			arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
-		var paths = _args.paths || [".", "./src"],
+		var paths =
+				_args.paths && _args.paths[0] !== undefined
+					? _args.paths
+					: [".", "./src"],
 			alias = typeof _args.alias === "string" ? _args.alias : "~",
 			ignoredDirectories = (
 				_args.ignoredDirectories || ignorePredefindDirectories
 			).concat(enforcedDirectories),
 			debug = _args.debug,
 			suppressWarnings = _args.suppressWarnings
-
-		if (paths.length === 0)
-			throw Error("You must provide an array of paths to alias!")
 
 		if ((alias === "" || alias === "@") && !suppressWarnings) {
 			logWarning(

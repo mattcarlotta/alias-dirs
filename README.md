@@ -110,7 +110,7 @@ For example:
 aliasDirs({ alias: "$" })
 ```
 
-*WARNING*: This module will not play well with public or private npm `@` name-spaced packages. Aliasing with an empty string `""` or with the private `@` symbol is discouraged and not recommended as it may conflict with a `node_module` package. A warning will be shown if an empty string or `@` is used. If you want to supress warnings, then add `supressWarnings: true` property. As such, use at your own risk.
+*WARNING*: This module will not play well with public or private npm `@` name-spaced packages. Aliasing with an empty string `""` or with the private `@` symbol is discouraged and not recommended as it may conflict with a `node_module` package. A warning will be shown if an empty string or `@` is used. If you want to supress warnings, then add `suppressWarnings: true` property. As such, use at your own risk.
 
 ## Ignore Directories
 

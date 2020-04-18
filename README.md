@@ -93,8 +93,10 @@ The following props are accepted by `aliasDirs()`:
 | `prop`                    | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `alias`(str)              | A `string` to alias directories to (default: [Alias Symbols](#alias-symbols))                                                                        |
-| `ignoreDirectories`(arr) | An `array` of `string` directory paths to ignore (default: [Ignore Directories](#ignore-directories)) |
+| `debug`(bool)             | A `boolean` to output debug messages (default: false) [Debugging](#debugging)              |
+| `ignoreDirectories`(arr)  | An `array` of `string` directory paths to ignore (default: [Ignore Directories](#ignore-directories)) |
 | `paths`(arr)              | An `array` of `string` directory paths relative to the root project directory (default: [Pathing](#pathing))               |
+| `suppressWarnings`(bool)  | A `boolean` to suppress warnings (default: false)                    |
 
 # Advanced Usage
 

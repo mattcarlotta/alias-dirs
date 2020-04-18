@@ -1,7 +1,7 @@
 {
 	"name": "alias-dirs",
 	"description": "Create aliases of directories for babel",
-	"version": "0.0.1",
+	"version": "0.0.11",
 	"author": {
 		"name": "Matt Carlotta",
 		"email": "carlotta.matt@gmail.com"
